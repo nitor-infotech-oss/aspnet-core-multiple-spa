@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "React App 2";
+}
+
+@section Styles {
+    @await Html.RenderReactHead("sample-app-2", "wwwroot/sample-app-2/index.html")
+}
+
+<script>
+    window.baseUrl = "/Apps/App2";
+</script>
+
+<div class="text-center">
+    <p>
+        @await Html.RenderReactBody("sample-app-2", "wwwroot/sample-app-2/index.html")
+    </p>
+</div>

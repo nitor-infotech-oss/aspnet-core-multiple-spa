@@ -1,0 +1,16 @@
+@page "/RazorPageApp/{*}"
+@{
+    ViewData["Title"] = "React App 1";
+}
+
+@section Styles {
+    @await Html.RenderReactHead("sample-app-1", "wwwroot/sample-app-1/index.html")
+}
+
+<script>
+    window.baseUrl = "/RazorPageApp";
+</script>
+
+<div>
+    @await Html.RenderReactBody("sample-app-1", "wwwroot/sample-app-1/index.html")
+</div>

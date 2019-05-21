@@ -1,0 +1,20 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "modules/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.14.1",
+    "ncp": "^2.0.0",
+    "copy-dir": "^1.1.0",
+    "rimraf": "^2.6.3"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "copy-local": "node ./scripts/publish.js",
+    "publish-local": "node ./scripts/build.js && node ./scripts/publish.js",
+    "clean": "git clean -fdX .",
+    "prettier": "prettier \"**/*.{ts,tsx,scss,css,js,json,md}\" --write"
+  }
+}
