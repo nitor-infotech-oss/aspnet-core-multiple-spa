@@ -5,6 +5,44 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <ContentRoot>wwwroot\</ContentRoot>
+    <SpaRoot>..\Client-Apps\</SpaRoot>
+    <SpaApp1>$(SpaRoot)modules\sample-app-1\</SpaApp1>
+    <SpaApp2>$(SpaRoot)modules\sample-app-2\</SpaApp2>
+    <OutputSpaApp1>$(SpaApp1)build\**\*.*</OutputSpaApp1>
+    <OutputSpaApp2>$(SpaApp2)build\**\*.*</OutputSpaApp2>
+    <ContentSpaApp1>$(ContentRoot)sample-app-1\</ContentSpaApp1>
+    <ContentSpaApp2>$(ContentRoot)sample-app-2\</ContentSpaApp2>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <App1Build Include="$(OutputSpaApp1)" />
+    <App2Build Include="$(OutputSpaApp2)" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'yarn'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="yarn install" />
+  </Target>
+
+  <Target Name="SPABuilds" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
+    <Message Importance="high" Text="Removing old builds..." />
+    <RemoveDir Directories="$(ContentSpaApp1);$(ContentSpaApp2)" />
+
+    <Message Importance="high" Text="Performing SPA builds..." />
+    <Exec WorkingDirectory="$(SpaApp1)" Command="yarn build" />
+    <Exec WorkingDirectory="$(SpaApp2)" Command="yarn build" />
+
+    <Message Importance="high" Text="Copying SPA builds..." />
+    <Copy SourceFiles="@(App1Build)" DestinationFolder="$(ContentSpaApp1)\%(RecursiveDir)" />
+    <Copy SourceFiles="@(App2Build)" DestinationFolder="$(ContentSpaApp2)\%(RecursiveDir)" />
+  </Target>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
