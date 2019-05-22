@@ -48,5 +48,5 @@ It is a hack and not a full sledged solution (WIP), this is an utility can be us
 
 ## Todos
 
-1. Automate build and copying SPA output
+1. ~~Automate build and copying SPA output~~
 2. Build target for Project to automate publishing with SPA output
