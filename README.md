@@ -6,7 +6,7 @@ The ASP.NET Core is providing amazing experience building [Single Page Applicati
 
 What we are really implementing here is the capability to serve multiple Single Page Applications (Modules) under a single ASP.NET core Web Application
 
-It is a hack and not a full sledged solution (WIP), this is an utility can be used with any Client Side JavaScript application or framework with minor customization, you can customize and set your own conventions
+It is a hack, this is an utility can be used with any Client Side JavaScript application or framework with minor customization, you can customize and set your own conventions
 
 ## How it works
 
