@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "Client-Apps/modules/sample-app-1/package.json",
+        "Client-Apps/modules/sample-app-2/package.json",
+        "Client-Apps/package.json"
+      ]
+    }
+  }
+}
