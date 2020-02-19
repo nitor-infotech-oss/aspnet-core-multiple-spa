@@ -1,5 +1,8 @@
 # Serve multiple [React](https://reactjs.org/) applications with Single [ASP.NET Core](https://docs.microsoft.com/en-gb/aspnet/core/) Web Application
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nitor-infotech-oss/aspnet-core-multiple-spa.svg)](https://greenkeeper.io/)
+
+
 ## Idea
 
 The ASP.NET Core is providing amazing experience building [Single Page Application with React](https://docs.microsoft.com/en-gb/aspnet/core/client-side/spa/react). You can create a single application either in React or [Angular](https://docs.microsoft.com/en-gb/aspnet/core/client-side/spa/angular) and serve the application using [Kestrel](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel). This is made possible with [JavaScriptServices](https://docs.microsoft.com/en-gb/aspnet/core/client-side/spa-services)
